@@ -1,0 +1,58 @@
+---
+title: Getting started
+description: An overview of the limbo plugin system
+---
+
+import { Aside, FileTree } from "@astrojs/starlight/components";
+import NpmCreate from "../../../../components/npm-create.astro";
+import NpmInstall from "../../../../components/npm-install.astro";
+import NpmRun from "../../../../components/npm-run.astro";
+
+The recommended way to create a Limbo plugin is with TypeScript.
+
+## Prerequisites
+
+- [Node.js 20+](https://nodejs.org/)
+- A code editor, such as [Visual Studio Code](https://code.visualstudio.com/)
+
+## Step 1: Create a new plugin
+
+The quickest way to create a new TypeScript Limbo plugin is using `create-limbo-plugin`, which sets up everything for you. To create a new plugin, run:
+
+<NpmCreate scriptName="limbo-plugin" />
+
+After running the command, `create-limbo-plugin` will prompt you for a few details about your plugin, such as its name and description. Once you answer these questions, it will create a new directory with the plugin's files.
+
+Your plugin direcory will look something like this:
+
+<FileTree>
+- src
+	- plugin.ts the main plugin file
+- plugin.json the plugin **manifest**
+- tsconfig.json the TypeScript configuration
+- rollup.config.js the bundler configuration
+- package.json
+
+</FileTree>
+
+## Step 2: Develop your plugin
+
+Inside of your plugin directory, run the following command to start the bundler and watch for changes:
+
+<NpmRun scriptName="dev" />
+
+<Aside>
+
+The bundler used by `create-limbo-plugin` is [Rollup](https://rollupjs.org/).
+
+Our `rollup-plugin-limbo` plugin will copy your built plugin to the Limbo plugins directory, which allows plugins to be automatically reloaded in the app during development!
+
+</Aside>
+
+### Step 3: Enable the plugin
+
+1. Open Limbo, open **settings**
+2. Go to the **plugins** tab in the sidebar.
+3. Enable your plugin by clicking its toggle.
+
+Your plugin should now be active! You can check the console and you should see a message indicating that your plugin has been activated.

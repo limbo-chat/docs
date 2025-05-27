@@ -1,0 +1,21 @@
+---
+import { Tabs, TabItem, Code } from "@astrojs/starlight/components";
+
+interface Props {
+	scriptName: string;
+}
+
+const props = Astro.props;
+---
+
+<Tabs syncKey="node-pacakge-manager-preference">
+	<TabItem label="npm" icon="seti:npm">
+		<Code lang="sh" frame="none" code={`npm run ${props.scriptName}`} />
+	</TabItem>
+	<TabItem label="pnpm" icon="pnpm">
+		<Code lang="sh" frame="none" code={`pnpm ${props.scriptName}`} />
+	</TabItem>
+	<TabItem label="yarn" icon="seti:yarn">
+		<Code lang="sh" frame="none" code={`yarn ${props.scriptName}`} />
+	</TabItem>
+</Tabs>

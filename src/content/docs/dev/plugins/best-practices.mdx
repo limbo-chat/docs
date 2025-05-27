@@ -1,0 +1,26 @@
+---
+title: Best practices and tips
+description: Best practices and tips for building a Limbo plugin
+---
+
+import { Aside, FileTree } from "@astrojs/starlight/components";
+
+## Tip: Use TypeScript
+
+The Limbo plugin API is built with TypeScript. Using TypeScript for developing plugins allows typesafe interactions with the Limbo plugin API.
+
+## Tip: Use a bundler
+
+Limbo plugins loaded by the app must be in this format:
+
+<FileTree>
+- my-plugin/
+	- plugin.js the main js file
+	- plugin.json the plugin **manifest**
+</FileTree>
+
+As you start creating more complex plugins that need to use libraries, you will likely want to start using a bundler like [Rollup](https://rollupjs.org). We've created a [rollup-plugin-limbo](https://github.com/limbo-llm/rollup-plugin) which makes it easy to bundle your plugin with Rollup.
+
+<Aside>
+	While [Vite](https://vite.dev/) is a great tool, it is not recommended for creating Limbo plugins. Vite ships with a lot of features that are not needed for creating Limbo plugins.
+</Aside>

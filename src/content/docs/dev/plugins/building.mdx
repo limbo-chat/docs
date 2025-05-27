@@ -1,0 +1,36 @@
+---
+title: Bundling
+---
+
+import { Aside } from "@astrojs/starlight/components";
+import LatestAppVersionBadge from "../../../../components/latest-app-version-badge.astro";
+
+It is recommended to use a bundler such as [Rollup](https://rollupjs.org) for building Plugins. Bundlers allow you to build your plugin of multiple files and libraries into one single file.
+
+## External libraries
+
+Since the Limbo desktop app already uses certain libraries, they can be access by plugins without needing to bundle them.
+
+As of <LatestAppVersionBadge />, the following libraries **should be excluded** by your bundler if you are using them:
+
+- `limbo`
+- `react`
+- `react/jsx-runtime`
+
+<Aside>
+	Libraries like `react` are very large. Since they are already included in the Limbo app, bundling them with your plugin would unnecessarily increase the size of your plugin.
+
+	Using the version of `react` built into the Limbo app also ensures that your plugin is compatible with the version used by the app.
+</Aside>
+
+### External libraries with Rollup
+
+```js {6}
+// rollup.config.js
+import { defineConfig } from "rollup";
+
+export default defineConfig({
+	// all of these libraries will be excluded from the bundle
+	external: ["limbo", "react", "react/jsx-runtime"],
+});
+```

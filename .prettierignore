@@ -5,3 +5,6 @@ dist/
 .astro/
 
 pnpm-lock.yaml
+
+*.md
+*.mdx

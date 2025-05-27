@@ -1,0 +1,58 @@
+---
+title: Limbo
+description: An overview of Limbo
+lastUpdated: 2025-05-26
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+> Limbo can almost be thought of as the Vscode of LLM UIs
+
+Limbo is a local-first and completely customizable desktop LLM interface. LLMs are an essential productivity tool these days, but most of us still bounce around ChatGPT, Claude, and Gemini, rotating when we hit rate limits.
+
+Although there are apps that exist that aim to unify the LLM user experience, all of them depend on the choices of the developers such as which LLMs to include and how the app should look.
+
+Limbo provides a base set of functionality and an extensive plugin API that allows anyone to add models or functionality to Limbo. _You don't have to wait for us to ship new features._
+
+Limbo plugins have been used to implement the following features:
+
+- [MCP]()
+- [Automatic chat naming]()
+- [OpenAI models]()
+- [Ollama]()
+
+## Our philosophies
+
+### Data
+
+We believe that all data should be owned by the user, not us. _At the time of writing this, Limbo does not have a single deployed web server._ All of your chats are stored on your machine with SQLite.
+
+### It's possible to be both user and developer-friendly
+
+Although Limbo is developer oriented, the core experience is completely usable without any technical background!
+
+### Plugins
+
+LLM tooling and user experiences are evolving at a breakneck speed. For example, [MCP](https://github.com/modelcontextprotocol) is quickly becoming a standard, yet interfaces such as ChatGPT still don't support it.
+
+You shouldn't have to wait for the other LLM UIs to roll out features. Limbo allows developers to utilize our plugin API to add new functionality to limbo. _This lets the core Limbo app be lean and you choose what features you want!_
+
+### Design system
+
+Limbo ships with zero styles built in. _Literally, the app does not contain a single stylesheet_. The truth is, everybody has a different opinion of what _looks good_ and we can't satisfy everyone.
+
+#### What does this mean?
+
+The html markup rendered inside of the limbo desktop app is completely **semantic**. Everything in the UI has a purpose and there are **no utility classes** (I'm looking at you, Tailwind). The semantic markup allows theme developers to choose **exactly** how each part of the app looks.
+
+<Aside>
+	We provide a base theme for limbo which can be installed separately, although I won't be
+	surprised when someone makes a better theme :).
+</Aside>
+
+#### Custom styles
+
+Limbo lets you write custom CSS which updates in the UI in real-time. This allows you to create custom themes or even just tweak a theme to your liking.
+
+While apps like VSCode and Obsidian mainly allow theming through user-created themes, _Limbo
+embraces the cascade of CSS_. One bit of custom CSS could be used to change colors while another could change the roundness of elements in the UI. (Just an example)
