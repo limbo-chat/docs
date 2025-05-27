@@ -1,18 +1,14 @@
 // @ts-check
-import { defineConfig, envField } from "astro/config";
+import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
+import { loadEnv } from "vite";
+
+// @ts-expect-error
+const env = loadEnv(process.env.NODE_ENV, process.cwd());
 
 export default defineConfig({
 	devToolbar: {
 		enabled: false,
-	},
-	env: {
-		schema: {
-			LATEST_APP_VERSION: envField.string({
-				access: "public",
-				context: "client",
-			}),
-		},
 	},
 	integrations: [
 		starlight({
@@ -21,12 +17,12 @@ export default defineConfig({
 				{
 					icon: "discord",
 					label: "Discord",
-					href: "https://discord.gg/UCMnvtk5Ja",
+					href: env.VITE_PUBLIC_DISCORD_INVITE_URL,
 				},
 				{
 					icon: "github",
 					label: "GitHub",
-					href: "https://github.com/limbo-llm",
+					href: env.VITE_PUBLIC_GITHUB_URL,
 				},
 			],
 			sidebar: [
