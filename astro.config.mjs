@@ -27,23 +27,23 @@ export default defineConfig({
 			],
 			sidebar: [
 				{
-					label: "Overview",
+					label: "Limbo",
 					items: [
 						{
 							label: "Introduction",
-							link: "/overview",
+							link: "/about",
 						},
 						{
 							label: "Roadmap",
-							link: "/overview/roadmap",
+							link: "/about/roadmap",
 						},
 						{
 							label: "Glossary",
-							link: "/overview/glossary",
+							link: "/about/glossary",
 						},
 						{
 							label: "Credits",
-							link: "/overview/credits",
+							link: "/about/credits",
 						},
 					],
 				},
@@ -87,6 +87,15 @@ export default defineConfig({
 											link: "/dev/plugins/reference/manifest",
 										},
 									],
+								},
+							],
+						},
+						{
+							label: "Styles",
+							items: [
+								{
+									label: "Overview",
+									link: "/dev/styles",
 								},
 							],
 						},
