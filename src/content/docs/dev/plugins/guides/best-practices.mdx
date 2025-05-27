@@ -13,6 +13,7 @@ The Limbo plugin API is built with TypeScript. Using TypeScript for developing p
 
 Limbo plugins loaded by the app must be in this format:
 
+{/* prettier-ignore */}
 <FileTree>
 - my-plugin/
 	- plugin.js the main js file
@@ -22,5 +23,6 @@ Limbo plugins loaded by the app must be in this format:
 As you start creating more complex plugins that need to use libraries, you will likely want to start using a bundler like [Rollup](https://rollupjs.org). We've created a [rollup-plugin-limbo](https://github.com/limbo-llm/rollup-plugin) which makes it easy to bundle your plugin with Rollup.
 
 <Aside>
-	While [Vite](https://vite.dev/) is a great tool, it is not recommended for creating Limbo plugins. Vite ships with a lot of features that are not needed for creating Limbo plugins.
+	While [Vite](https://vite.dev/) is a great tool, it is not recommended for creating Limbo
+	plugins. Vite ships with a lot of features that are not needed for creating Limbo plugins.
 </Aside>
