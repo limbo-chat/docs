@@ -27,12 +27,70 @@ export default defineConfig({
 			],
 			sidebar: [
 				{
-					label: "Users",
-					autogenerate: { directory: "user" },
+					label: "Overview",
+					items: [
+						{
+							label: "Introduction",
+							link: "/overview",
+						},
+						{
+							label: "Roadmap",
+							link: "/overview/roadmap",
+						},
+						{
+							label: "Glossary",
+							link: "/overview/glossary",
+						},
+						{
+							label: "Credits",
+							link: "/overview/credits",
+						},
+					],
 				},
 				{
 					label: "Developers",
-					autogenerate: { directory: "dev" },
+					collapsed: true,
+					items: [
+						{
+							label: "Plugins",
+							items: [
+								{
+									label: "Guides",
+									items: [
+										{
+											label: "Getting started",
+											link: "/dev/plugins/guides/getting-started",
+										},
+										{
+											label: "Best practices",
+											link: "/dev/plugins/guides/best-practices",
+										},
+										{
+											label: "Common pitfalls",
+											link: "/dev/plugins/guides/pitfalls",
+										},
+										{
+											label: "Building",
+											link: "/dev/plugins/guides/building",
+										},
+										{
+											label: "Publishing",
+											link: "/dev/plugins/guides/publishing",
+										},
+									],
+								},
+								{
+									label: "Reference",
+									items: [
+										{
+											label: "Manifest",
+											link: "/dev/plugins/reference/manifest",
+										},
+									],
+								},
+							],
+						},
+					],
 				},
 			],
 		}),
