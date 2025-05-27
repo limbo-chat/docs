@@ -1,0 +1,42 @@
+---
+title: Publishing your plugin
+description: A guide on publishing your Limbo plugin
+---
+
+
+import { FileTree, Steps } from "@astrojs/starlight/components";
+import LatestAppVersionBadge from "~/components/latest-app-version-badge.astro";
+
+GitHub releases are used to distribute Limbo plugins. 
+
+A registry of approved community plugins is on the [Roadmap](/roadmap), but as of <LatestAppVersionBadge />, plugins are installed in the app using the GitHub repository URL. 
+
+## Step 1: Build your plugin for production
+
+Your final plugin should be a single directory.
+
+<FileTree>
+- my-plugin/
+	- plugin.js the main js file
+	- plugin.json the plugin **manifest**
+</FileTree>
+
+Refer to the [Building your plugin](./building) and [Best practices](./best-practices) guides before publishing your plugin.
+
+## Step 2: Create a release on GitHub
+
+<Steps>
+	1. Go to your plugin's GitHub repository and click on the "Releases" tab. 
+
+	2. Click on "Draft a new release".
+
+	3. The release tag **must follow** [Semantic Versioning](https://semver.org/). For example, a valid tag would be `1.0.0`. *You can name the title whatever you want, but a good title would be the same as the tag, e.g. `1.0.0` or `v1.1.0`.* 
+
+	4. Add the `plugin.json` and `plugin.js` files to the release. 
+
+	5. Click on "Publish release".
+</Steps>
+
+## Conclusion
+
+Your plugin is now published and should be able to be installed in the Limbo app!
