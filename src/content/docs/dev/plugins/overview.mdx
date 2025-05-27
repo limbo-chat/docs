@@ -3,13 +3,21 @@ title: Overview
 description: An overview of the limbo plugin system
 ---
 
-Plugins are JavaScript modules that extend the existing functionality in Limbo.
+import { Aside } from "@astrojs/starlight/components";
+
+<Aside>
+	The plugin API is **versioned separately** from the Limbo app. The latest version of the Limbo
+	app will be built with the latest version of the plugin API.
+</Aside>
+
+Plugins are JavaScript modules that extend the existing functionality in Limbo. Plugins interact with limbo by utilizing the Limbo plugin API.
 
 - register custom models
 - register custom tools
 - register commands
 - register custom views with React
 - hook into app lifecycles
+- and much more...
 
 Limbo is built with [Electron](https://www.electronjs.org/) and plugins are executed in the [renderer process](https://www.electronjs.org/docs/latest/tutorial/process-model#the-renderer-process). This means that plugins have access to the browser APIs such as the document.
 
