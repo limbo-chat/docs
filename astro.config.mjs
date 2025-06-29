@@ -13,6 +13,7 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: "Limbo Docs",
+			customCss: ["./src/styles/theme.css"],
 			social: [
 				{
 					icon: "discord",
@@ -34,10 +35,6 @@ export default defineConfig({
 							link: "/about",
 						},
 						{
-							label: "Roadmap",
-							link: "/about/roadmap",
-						},
-						{
 							label: "Glossary",
 							link: "/about/glossary",
 						},
@@ -53,6 +50,7 @@ export default defineConfig({
 					items: [
 						{
 							label: "Plugins",
+							collapsed: true,
 							items: [
 								{
 									label: "Guides",
@@ -80,7 +78,18 @@ export default defineConfig({
 									],
 								},
 								{
+									label: "Models",
+									collapsed: true,
+									items: [
+										{
+											label: "Registering models",
+											link: "/dev/plugins/models/registering-models",
+										},
+									],
+								},
+								{
 									label: "Reference",
+									collapsed: true,
 									items: [
 										{
 											label: "Manifest",
@@ -96,6 +105,13 @@ export default defineConfig({
 								{
 									label: "Overview",
 									link: "/dev/styles",
+								},
+								{
+									label: "Components",
+									collapsed: true,
+									autogenerate: {
+										directory: "/dev/styles/components",
+									},
 								},
 							],
 						},
