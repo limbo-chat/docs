@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
+import mermaid from "astro-mermaid";
 import { loadEnv } from "vite";
 
 // @ts-expect-error
@@ -11,6 +12,7 @@ export default defineConfig({
 		enabled: false,
 	},
 	integrations: [
+		mermaid(),
 		starlight({
 			title: "Limbo Docs",
 			customCss: ["./src/styles/theme.css"],
@@ -52,6 +54,14 @@ export default defineConfig({
 							label: "Plugins",
 							collapsed: true,
 							items: [
+								{
+									label: "Overview",
+									link: "/dev/plugins",
+								},
+								{
+									label: "Lifecycle",
+									link: "/dev/plugins/lifecycle",
+								},
 								{
 									label: "Guides",
 									items: [

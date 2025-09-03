@@ -21,4 +21,27 @@ Plugins are JavaScript modules that extend the existing functionality in Limbo. 
 
 Limbo is built with [Electron](https://www.electronjs.org/) and plugins are executed in the [renderer process](https://www.electronjs.org/docs/latest/tutorial/process-model#the-renderer-process). This means that plugins have access to the browser APIs such as the document.
 
-Plugins should **avoid** interacting with the browser APIs and use the API provided by Limbo **as much as possible**. A mobile version of Limbo is on the [roadmap]() and plugins that use browser APIs may cause the plugin to be unusable.
+Plugins **activatedSHOULD** avoid interacting with the browser APIs and use the API provided by Limbo **as much as possible**. A mobile version of Limbo is on the roadmap and plugins that use browser APIs may cause the plugin to be unusable.
+
+## TypeScript
+
+The Limbo plugin API is written in TypeScript, therefore plugins should also be written in TypeScript. This ensures that plugins can take advantage of type checking when using the Limbo plugin API.
+
+## Example
+
+Here's an example of what a Limbo plugin may look like.
+
+```ts
+// plugin.ts
+
+import * as limbo from "@limbo-chat/api";
+
+export default {
+	onActivate: async () => {
+		console.log("Plugin activated!");
+	},
+	onDeactivate: async () => {
+		console.log("Plugin deactivated!");
+	},
+} satisfies limbo.Plugin;
+```
