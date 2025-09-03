@@ -13,14 +13,17 @@ Since the Limbo desktop app already uses certain libraries, they can be access b
 
 As of <LatestAppVersionBadge />, the following libraries **should be excluded** by your bundler if you are using them:
 
-- `limbo`
+- `@limbo-chat/api`
 - `react`
 - `react/jsx-runtime`
+- `@tanstack/react-query`
+- `@sinclair/typebox`
 
 <Aside>
 	Libraries like `react` are very large. Since they are already included in the Limbo app, bundling them with your plugin would unnecessarily increase the size of your plugin.
 
-	Using the version of `react` built into the Limbo app also ensures that your plugin is compatible with the version used by the app.
+    Using the version of `react` built into the Limbo app also ensures that your plugin is compatible with the version used by the app.
+
 </Aside>
 
 ### External libraries with Rollup
