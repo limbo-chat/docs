@@ -89,13 +89,11 @@ export default defineConfig({
 								},
 								{
 									label: "Models",
-									collapsed: true,
-									items: [
-										{
-											label: "Registering models",
-											link: "/dev/plugins/models/registering-models",
-										},
-									],
+									link: "/dev/plugins/models",
+								},
+								{
+									label: "Tools",
+									link: "/dev/plugins/tools",
 								},
 								{
 									label: "Reference",

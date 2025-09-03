@@ -23,6 +23,20 @@ The workspace is the main view in Limbo. It has several components:
 - Chat view
 - Secondary sidebar
 
+## Assistant
+
+An **assistant** is a personality that inspires LLM outputs.
+
+:::note
+An assistant is just a system prompt preset :)
+:::
+
+## Tool
+
+A **tool** is an action that can be executed by an LLM during a chat. Tools give assistants access to the outside world.
+
+Tools have strict argument schemas modeled with [JSON Schemas](https://json-schema.org).
+
 ## Command
 
 A **command** is an action that can be executed from the command palette.

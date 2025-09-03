@@ -18,6 +18,8 @@ When a plugin is deactivated, the `onDeactivate` function is called.
 Here's an example of the `onActivate` and `onDeactivate` functions in action.
 
 ```ts
+// plugin.ts
+
 import * as limbo from "@limbo-chat/api";
 
 export default {
@@ -40,6 +42,8 @@ export default {
 There are also several lifecycle hooks around the creation and deletion of chats.
 
 ```ts
+// plugin.ts
+
 import * as limbo from "@limbo-chat/api";
 
 export default {
@@ -96,6 +100,8 @@ stateDiagram-v2
 Here's an example of the chat generation lifecycle hooks in action.
 
 ```ts
+// plugin.ts
+
 import * as limbo from "@limbo-chat/api";
 
 export default {

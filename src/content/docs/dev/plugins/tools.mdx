@@ -1,0 +1,234 @@
+---
+title: Tools
+description: An overview of tools in Limbo
+---
+
+Tools are actions that can be performed by an assistant during a chat.
+
+:::note
+MCP is quickly becoming a standard for servers being able to define tools in an accessible/uniform way.
+
+MCP is not built into Limbo, but rather is integrated as a plugin that uses the Limbo API to register the tools in the app.
+:::
+
+## Registering Tools
+
+The Limbo API allows for tools to be registered by plugins.
+
+```ts
+// plugin.ts
+
+import * as limbo from "@limbo-chat/api";
+
+// limbo uses typebox to allow type inference from your schemas
+import { Type } from "@sinclair/typebox";
+
+export default {
+	onActivate: async () => {
+		// this tool doesn't require any arguments, but a schema is still needed
+		limbo.tools.register({
+			id: "get_cat_fact",
+			description: "Gets a random cat fact",
+			schema: Type.Object(
+				{},
+				{
+					additionalProperties: false,
+				}
+			),
+			// the main execution logic for the tool.
+			execute: async ({ toolCall }) => {
+				const response = await fetch("https://catfact.ninja/fact");
+				const data = await response.json();
+
+				await new Promise((resolve) => setTimeout(resolve, 1000));
+
+				return data.fact;
+			},
+		});
+
+		// this tool does require arguments
+		limbo.tools.register({
+			id: "read_files",
+			description: "Read files from a directory",
+			schema: Type.Object(
+				{
+					path: Type.String({
+						description: "The path of the directory to read files from",
+					}),
+				},
+				{
+					additionalProperties: false,
+				}
+			),
+			execute: ({ toolCall }) => {
+				// the arguments are typesafe!
+				console.log("Reading files from directory:", toolCall.arguments.path);
+
+				return "[FILE] file.txt\n[FILE] todo.txt\n[FILE] dontopen.txt";
+			},
+		});
+	},
+} satisfies limbo.Plugin;
+```
+
+## Errors
+
+If your plugin throws an error, Limbo will capture the error message automatically. You can access the error message in the `onError` hook.
+
+Error messages make their way to the assistant, so ideally they should be descriptive and human readable.
+
+```ts
+// plugin.ts
+
+import * as limbo from "@limbo-chat/api";
+
+export default {
+	onActivate: async () => {
+		limbo.tools.register({
+			id: "read_files",
+			description: "Read files from a directory",
+			schema: Type.Object(
+				{},
+				{
+					additionalProperties: false,
+				}
+			),
+			execute: ({ toolCall }) => {
+				// this is a good error message
+				throw new Error("Failed to read files: User did not grant permissions");
+			},
+		});
+	},
+} satisfies limbo.Plugin;
+```
+
+## Customization
+
+### Icons
+
+Custom icons can be provided to a tool by definining the icon on the tool object. _They can make your tool less boring when visualized in the chat log._
+
+#### Predefined Icons
+
+```ts {4}
+limbo.tools.register({
+	id: "search",
+	description: "Search the web",
+	icon: "search" // this is just one of the common icon types already available in Limbo
+	schema: Type.Object(
+		{},
+		{
+			additionalProperties: false,
+		}
+	),
+	execute: () => {},
+});
+```
+
+### Custom Icons
+
+Custom icons can be defined by providing the source directly. _The "alt" property of a custom icon is not required, but recommended where it benefits accessibility._
+
+```ts {4-7}
+limbo.tools.register({
+	id: "search",
+	description: "Search the web",
+	icon: {
+		source: "https://custom.com/my-search-icon.png",
+		alt: "Search icon",
+	},
+	schema: Type.Object(
+		{},
+		{
+			additionalProperties: false,
+		}
+	),
+	execute: () => {},
+});
+```
+
+### Dynamic Icons
+
+You can also provide a function that returns an icon. This can be used to have dynamic icons based on the state of the tool call.
+
+```ts {4-23}
+limbo.tools.register({
+	id: "search",
+	description: "Search the web",
+	icon: ({ toolCall }) => {
+		if (toolCall.status === "pending") {
+			return {
+				source: "https://custom.com/searching.png",
+				alt: "Searching the web",
+			};
+		}
+
+		if (toolCall.status === "error") {
+			return {
+				source: "https://custom.com/search-failed.png",
+				alt: "Failed searching",
+			};
+		}
+
+		return {
+			source: "https://custom.com/search-complete.png",
+			alt: "Search complete",
+		};
+	},
+	schema: Type.Object(
+		{},
+		{
+			additionalProperties: false,
+		}
+	),
+	execute: () => {},
+});
+```
+
+### Custom Renderer
+
+If the default tool call renderer isn't sufficient, you can provide your own custom renderer as a React component.
+
+:::note
+If you define a custom renderer, you're starting from scratch. Customization such as icons will become obsolete and will have to be implemented manually.
+:::
+
+```ts {10-35}
+limbo.tools.register({
+	id: "search",
+	description: "Search the web",
+	schema: Type.Object(
+		{},
+		{
+			additionalProperties: false,
+		}
+	),
+	renderer: ({ toolCall }) => {
+		// note: semantic class names should be used!
+		// inline styles are used for deomonstration purposes
+
+		return (
+			<div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+				<img
+					src="https://media.tenor.com/3zBRB7FbwDsAAAAM/groei-it-charlottexangie.gif"
+					style={{ height: 48, width: 48, borderRadius: 24 }}
+				/>
+				<p
+					style={{
+						color: "var(--theme-color-text-muted)",
+						fontSize: "var(--theme-font-size-sm)",
+						fontStyle: "italic",
+					}}
+				>
+					{toolCall.status === "pending"
+						? "Searching the web..."
+						: toolCall.status === "error"
+							? "Failed to search the web :("
+							: toolCall.result}
+				</p>
+			</div>
+		);
+	},
+	execute: () => {},
+});
+```
