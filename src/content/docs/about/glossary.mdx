@@ -5,6 +5,24 @@ description: Common Limbo terminology
 
 This glossary includes common Limbo terminology.
 
+## Plugin
+
+A **plugin** is a JavaScript module that hooks into the Limbo API.
+
+## Theme
+
+A **theme** is synonymous with custom styles. Custom styles are CSS files that can be applied to change the appearance of Limbo.
+
+## Workspace
+
+The workspace is the main view in Limbo. It has several components:
+
+- Side dock
+- Title bar
+- Chat list
+- Chat view
+- Secondary sidebar
+
 ## Command
 
 A **command** is an action that can be executed from the command palette.
@@ -12,3 +30,13 @@ A **command** is an action that can be executed from the command palette.
 ## LLM
 
 A **Large Language Model** (LLM) is a type of artificial intelligence model that is trained on vast amounts of text data to understand and generate human-like language. LLMs are capable of performing various natural language processing tasks, such as text generation, translation, summarization, and more.
+
+## Chat Node
+
+A chat node is piece of content inside of a chat message. Chat nodes are rendered in the UI and also passed to LLMs for processing.
+
+For example, the most common types of chat nodes across chat interfaces are:
+
+- `text`
+- `tool_call`
+- `image`
