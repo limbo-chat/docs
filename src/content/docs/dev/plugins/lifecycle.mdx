@@ -35,6 +35,29 @@ export default {
 } satisfies limbo.Plugin;
 ```
 
+## Chats
+
+There are also several lifecycle hooks around the creation and deletion of chats.
+
+```ts
+import * as limbo from "@limbo-chat/api";
+
+export default {
+	// called when a new chat is created
+	onChatCreated: (newChat) => {
+		console.log("chat created:", newChat);
+	},
+	// called when a single chat is deleted
+	onChatDeleted: (chatId) => {
+		console.log("chat deleted:", chatId);
+	},
+	// called when multiple chats are deleted at once
+	onChatsDeleted: (chatIds) => {
+		console.log("chats deleted:", chatIds);
+	},
+} satisfies limbo.Plugin;
+```
+
 ## Chat Generation
 
 A **chat generation** refers to the process of generating a single response (AKA, an assistant message) to the user's message. A chat generation consists of one or more **iterations**.
@@ -87,29 +110,6 @@ export default {
 	},
 	onAfterChatGeneration: ({ generation }) => {
 		console.log("After chat generation");
-	},
-} satisfies limbo.Plugin;
-```
-
-### Chats
-
-There are also several lifecycle hooks around the creation and deletion of chats.
-
-```ts
-import * as limbo from "@limbo-chat/api";
-
-export default {
-	// called when a new chat is created
-	onChatCreated: (newChat) => {
-		console.log("chat created:", newChat);
-	},
-	// called when a single chat is deleted
-	onChatDeleted: (chatId) => {
-		console.log("chat deleted:", chatId);
-	},
-	// called when multiple chats are deleted at once
-	onChatsDeleted: (chatIds) => {
-		console.log("chats deleted:", chatIds);
 	},
 } satisfies limbo.Plugin;
 ```
