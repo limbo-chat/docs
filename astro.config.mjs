@@ -120,6 +120,10 @@ export default defineConfig({
 									link: "/dev/plugins/database",
 								},
 								{
+									label: "Interactions",
+									link: "/dev/plugins/interactions",
+								},
+								{
 									label: "Authentication",
 									link: "/dev/plugins/authentication",
 								},

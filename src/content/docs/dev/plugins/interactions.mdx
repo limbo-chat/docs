@@ -1,0 +1,44 @@
+---
+title: Interactions
+description: An overview of UI interactions in the Limbo API
+---
+
+There are several types of interactions that plugins can present to the user.
+
+## Confirmation Dialogs
+
+A confirmation dialog is an interaction presented to a user prompting them to confirm or deny some request. Confirmation dialogs are commonly seen for **destructive** actions.
+
+```ts
+const shouldArchiveArtifact = await limbo.ui.showConfirmDialog({
+	title: "Archive Artifact?",
+	description: "Are you sure you want to archive this artifact?",
+});
+
+// destructive confirmation dialog
+const shouldDeleteArtifact = await limbo.ui.showConfirmDialog({
+	style: "destructive",
+	title: "Delete Artifact?",
+	description: "Are you sure you want to delete this artifact?",
+});
+
+// with custom labels
+const shouldArchiveArtifact = await limbo.ui.showConfirmDialog({
+	title: "Archive Artifact?",
+	description: "Are you sure you want to archive this artifact?",
+	confirmLabel: "Archive",
+	cancelLabel: "NO!!!",
+});
+```
+
+## Notifications
+
+Notifications can be presented to the user to notify them of important events or updates.
+
+```ts
+limbo.ui.showNotification({
+	level: "info",
+	title: "Test Notification",
+	message: "This is a test notification",
+});
+```
