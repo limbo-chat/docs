@@ -1,0 +1,40 @@
+---
+title: Commands
+description: An overview of the command API in Limbo
+---
+
+The Limbo API provides a way for plugins to register commands the user can execute from the Command Palette.
+
+Some examples of commands might be to:
+
+- Reload tools from an MCP server
+- Reload models from a server like Ollama
+
+## Usage
+
+```ts {7-17}
+// plugin.ts
+
+import * as limbo from "@limbo-chat/api";
+
+export default {
+	onActivate: async () => {
+		limbo.commands.register({
+			id: "reload-tools",
+			name: "Reload tools",
+			execute: async () => {
+				const newTools = await fetchToolsFromMCPServer();
+
+				for (const tool of newTools) {
+					// ...register tool with the Limbo API
+				}
+			},
+		});
+	},
+} satisfies limbo.Plugin;
+```
+
+## Recommendations
+
+- Use kebab case for command IDs (e.g, `reload-tools`)
+- Use descriptive names for your commands to make them easily identifiable.

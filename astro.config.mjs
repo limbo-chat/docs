@@ -104,6 +104,10 @@ export default defineConfig({
 									link: "/dev/plugins/tools",
 								},
 								{
+									label: "Commands",
+									link: "/dev/plugins/commands",
+								},
+								{
 									label: "Chat Nodes",
 									link: "/dev/plugins/chat-nodes",
 								},
