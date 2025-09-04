@@ -83,6 +83,10 @@ export default defineConfig({
 									link: "/dev/plugins/chat-nodes",
 								},
 								{
+									label: "Chat Panels",
+									link: "/dev/plugins/chat-panels",
+								},
+								{
 									label: "Settings",
 									link: "/dev/plugins/settings",
 								},

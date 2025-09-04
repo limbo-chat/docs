@@ -1,0 +1,49 @@
+---
+title: Chat Panels
+description: An overview of chat panels in Limbo
+---
+
+Chat panels are _panels_ that appear next to a chat in the Limbo UI. The chat and panel are separated by a horizontal split.
+
+Chat panels are used by plugins like [Artifacts](https://github.com/limbo-chat/plugin-artifacts) to display artifacts.
+
+## Registering a Chat Panel
+
+```ts
+type CounterData = {
+	initialCount: number;
+};
+
+limbo.ui.registerChatPanel({
+	id: "counter",
+	component: ({ data }: limbo.ui.ChatPanelComponentProps<CounterData>) => {
+		const [count, setCount] = useState(data.initialCount);
+
+		return (
+			<div className="counter">
+				<button onClick={() => setCount(prev => prev + 1)}>
+					Count: {count}
+				</button>
+			</div>
+		)
+	},
+});
+```
+
+## Presenting a Chat Panel
+
+A Chat Panel can be presented to the user using the `limbo.ui.showChatPanel` function. This presents the chat panel for the currently active chat.
+
+```ts
+limbo.ui.showChatPanel({
+	id: "counter",
+	data: {
+		initialCount: 5,
+	},
+});
+```
+
+## Recommendations
+
+- Use kebab case for chat panel IDs (e.g, `artifact-preview`)
+- Semantic class names should be used in the component for styling purposes.
