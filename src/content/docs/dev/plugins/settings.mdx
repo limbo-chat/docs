@@ -1,0 +1,122 @@
+---
+title: Settings
+description: An overview of the settings API in Limbo
+---
+
+The Limbo API provides a settings system for plugins to use. Each setting registered by a plugin shows up in its configuration page to be configured by the user.
+
+## Reading a Setting Value
+
+```ts
+const apiKey = limbo.settings.get<string>("api_key");
+```
+
+## Setting Types
+
+### Boolean
+
+Boolean settings allow users to toggle between two options (true/false or on/off).
+
+```ts
+limbo.settings.register({
+	id: "notifications",
+	type: "boolean",
+	label: "Enable notifications",
+	description: "Whether to enable notifications for this plugin",
+});
+```
+
+### Text
+
+Text settings allow users to input a string value.
+
+```ts
+// standard text setting
+limbo.settings.register({
+	id: "email",
+	type: "text",
+	label: "Email address",
+	description: "Your email address",
+	placeholder: "Enter your email address",
+});
+
+// password variant
+limbo.settings.register({
+	id: "api_key",
+	type: "text",
+	variant: "password",
+	label: "API key",
+	description: "Your OpenAI API key",
+	placeholder: "Enter your API key",
+});
+
+// multiline (textarea) variant
+limbo.settings.register({
+	id: "bio",
+	type: "text",
+	variant: "multiline",
+	label: "About you",
+	description: "We'd love a short intro",
+	placeholder: "Tell us about yourself",
+});
+```
+
+### Number
+
+Number settings allow users to input a numeric value.
+
+```ts
+limbo.settings.register({
+	id: "max_retries",
+	type: "number",
+	label: "Max retries",
+	description: "The maximum number of times to retry a failed request",
+	min: 0,
+	max: 10,
+});
+```
+
+### Enum
+
+Enum settings allow users to select a value from several options.
+
+```ts
+limbo.settings.register({
+	id: "theme",
+	type: "enum",
+	label: "Theme",
+	description: "Select the theme for the app",
+	options: [
+		{
+			label: "Light",
+			value: "light",
+		},
+		{
+			label: "Dark",
+			value: "dark",
+		},
+	],
+});
+```
+
+### LLM
+
+LLM settings allow users to choose an LLM.
+
+:::note
+The Artifacts plugin allows users to select an LLM for coding.
+:::
+
+```ts
+limbo.settings.register({
+	id: "coding_model",
+	type: "llm",
+	label: "Coding model",
+	capabilities: ["tool_calling"],
+	description: "Select an LLM to write code",
+});
+```
+
+## Recommendations
+
+- Setting IDs should be snake case (e.g, `snake_case`)

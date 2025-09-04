@@ -112,6 +112,10 @@ export default defineConfig({
 									link: "/dev/plugins/chat-nodes",
 								},
 								{
+									label: "Settings",
+									link: "/dev/plugins/settings",
+								},
+								{
 									label: "Storage",
 									link: "/dev/plugins/storage",
 								},
