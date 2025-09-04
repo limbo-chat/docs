@@ -1,0 +1,41 @@
+---
+title: Overview
+description: An overview of the Limbo style system
+---
+
+import NpmCreate from "~/components/npm-create.astro";
+import DiscordInviteLink from "~/components/discord-invite-link.astro";
+
+Limbo allows developers to create their own custom styles using CSS! It's as simple as placing CSS files in your installation's styles directory.
+
+## Hot Reloading
+
+To enable hot reloading of custom styles, go to the development menu in your settings and enable "Developer mode". _You may need to restart the app for the change to take effect_.
+
+With developer mode enabled, you can see the changes in real time.
+
+## Best Practices
+
+### Use SCSS
+
+_Or any compiled CSS solution_
+
+**Why?**
+
+Using something like SCSS allows you to take advantage of features like variables, nesting, and mixins, making your styles more maintainable and easier to work with.
+
+It also has the advantage of allowing you to compile multiple `scss` files into one single `css` file, allowing much simpler distribution to users.
+
+## Quick Start
+
+The quickest way to create a new Limbo theme is using `create-limbo-theme`, which sets up everything for you. To create a new theme, run:
+
+<NpmCreate scriptName="limbo-theme" />
+
+## Continuous Improvement
+
+Building an application with zero styles and purely semantic CSS can be **hard**. If you're a semantic CSS expert and you see flaws in the way Limbo does things in the markup, please reach out.
+
+It is an ongoing effort to make Limbo 100% customizable, and help from the community is greatly appreciated!
+
+Join our Discord community <DiscordInviteLink>here</DiscordInviteLink> to get involved.

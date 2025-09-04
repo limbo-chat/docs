@@ -154,13 +154,6 @@ export default defineConfig({
 									label: "Overview",
 									link: "/dev/styles",
 								},
-								{
-									label: "Components",
-									collapsed: true,
-									autogenerate: {
-										directory: "/dev/styles/components",
-									},
-								},
 							],
 						},
 					],
