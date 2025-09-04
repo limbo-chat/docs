@@ -104,6 +104,10 @@ export default defineConfig({
 									link: "/dev/plugins/chat-nodes",
 								},
 								{
+									label: "Authentication",
+									link: "/dev/plugins/authentication",
+								},
+								{
 									label: "Reference",
 									collapsed: true,
 									items: [
