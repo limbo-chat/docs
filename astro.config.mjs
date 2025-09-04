@@ -47,118 +47,112 @@ export default defineConfig({
 					],
 				},
 				{
-					label: "Developers",
+					label: "Plugins",
 					collapsed: true,
 					items: [
 						{
-							label: "Plugins",
-							collapsed: true,
+							label: "Overview",
+							link: "/plugins",
+						},
+						{
+							label: "Lifecycle",
+							link: "/plugins/lifecycle",
+						},
+						{
+							label: "Chats",
+							link: "/plugins/chats",
+						},
+						{
+							label: "Models",
+							link: "/plugins/models",
+						},
+						{
+							label: "Tools",
+							link: "/plugins/tools",
+						},
+						{
+							label: "Commands",
+							link: "/plugins/commands",
+						},
+						{
+							label: "Chat Nodes",
+							link: "/plugins/chat-nodes",
+						},
+						{
+							label: "Chat Panels",
+							link: "/plugins/chat-panels",
+						},
+						{
+							label: "Settings",
+							link: "/plugins/settings",
+						},
+						{
+							label: "Storage",
+							link: "/plugins/storage",
+						},
+						{
+							label: "Database",
+							link: "/plugins/database",
+						},
+						{
+							label: "Interactions",
+							link: "/plugins/interactions",
+						},
+						{
+							label: "Authentication",
+							link: "/plugins/authentication",
+						},
+						{
+							label: "Guides",
 							items: [
 								{
-									label: "Overview",
-									link: "/dev/plugins",
+									label: "Getting started",
+									link: "/plugins/guides/getting-started",
 								},
 								{
-									label: "Lifecycle",
-									link: "/dev/plugins/lifecycle",
+									label: "Best practices",
+									link: "/plugins/guides/best-practices",
 								},
 								{
-									label: "Chats",
-									link: "/dev/plugins/chats",
+									label: "Common pitfalls",
+									link: "/plugins/guides/pitfalls",
 								},
 								{
-									label: "Models",
-									link: "/dev/plugins/models",
+									label: "Building",
+									link: "/plugins/guides/building",
 								},
 								{
-									label: "Tools",
-									link: "/dev/plugins/tools",
+									label: "Publishing",
+									link: "/plugins/guides/publishing",
 								},
 								{
-									label: "Commands",
-									link: "/dev/plugins/commands",
+									label: "Building a Chat Node",
+									link: "/plugins/guides/building-a-chat-node",
 								},
 								{
-									label: "Chat Nodes",
-									link: "/dev/plugins/chat-nodes",
-								},
-								{
-									label: "Chat Panels",
-									link: "/dev/plugins/chat-panels",
-								},
-								{
-									label: "Settings",
-									link: "/dev/plugins/settings",
-								},
-								{
-									label: "Storage",
-									link: "/dev/plugins/storage",
-								},
-								{
-									label: "Database",
-									link: "/dev/plugins/database",
-								},
-								{
-									label: "Interactions",
-									link: "/dev/plugins/interactions",
-								},
-								{
-									label: "Authentication",
-									link: "/dev/plugins/authentication",
-								},
-								{
-									label: "Guides",
-									items: [
-										{
-											label: "Getting started",
-											link: "/dev/plugins/guides/getting-started",
-										},
-										{
-											label: "Best practices",
-											link: "/dev/plugins/guides/best-practices",
-										},
-										{
-											label: "Common pitfalls",
-											link: "/dev/plugins/guides/pitfalls",
-										},
-										{
-											label: "Building",
-											link: "/dev/plugins/guides/building",
-										},
-										{
-											label: "Publishing",
-											link: "/dev/plugins/guides/publishing",
-										},
-										{
-											label: "Building a Chat Node",
-											link: "/dev/plugins/guides/building-a-chat-node",
-										},
-										{
-											label: "Notable Plugins",
-											link: "/dev/plugins/guides/notable-plugins",
-										},
-									],
-								},
-								{
-									label: "Reference",
-									collapsed: true,
-									items: [
-										{
-											label: "Manifest",
-											link: "/dev/plugins/reference/manifest",
-										},
-									],
+									label: "Notable Plugins",
+									link: "/plugins/guides/notable-plugins",
 								},
 							],
 						},
 						{
-							label: "Styles",
+							label: "Reference",
+							collapsed: true,
 							items: [
 								{
-									label: "Overview",
-									link: "/dev/styles",
+									label: "Manifest",
+									link: "/plugins/reference/manifest",
 								},
 							],
+						},
+					],
+				},
+				{
+					label: "Styles",
+					items: [
+						{
+							label: "Overview",
+							link: "/styles",
 						},
 					],
 				},
