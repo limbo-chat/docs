@@ -3,6 +3,7 @@ import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import mermaid from "astro-mermaid";
 import { loadEnv } from "vite";
+import starlightThemeNext from "starlight-theme-next";
 
 // @ts-expect-error
 const env = loadEnv(process.env.NODE_ENV, process.cwd());
@@ -15,7 +16,7 @@ export default defineConfig({
 		mermaid(),
 		starlight({
 			title: "Limbo Docs",
-			customCss: ["./src/styles/theme.css"],
+			plugins: [starlightThemeNext()],
 			social: [
 				{
 					icon: "discord",
@@ -25,7 +26,7 @@ export default defineConfig({
 				{
 					icon: "github",
 					label: "GitHub",
-					href: env.VITE_PUBLIC_GITHUB_URL,
+					href: "https://github.com/limbo-chat",
 				},
 			],
 			sidebar: [

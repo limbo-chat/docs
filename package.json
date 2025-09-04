@@ -19,6 +19,7 @@
 		"mermaid": "^11.10.1",
 		"prettier": "^3.5.3",
 		"prettier-plugin-astro": "^0.14.1",
+		"starlight-theme-next": "^0.3.2",
 		"vite": "^6.3.5"
 	}
 }

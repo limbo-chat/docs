@@ -1,11 +1,34 @@
 ---
-title: Welcome to Limbo
-description: The VSCode of LLM interfaces
+title: Your chat, your way
+description: The extensible chat interface
 template: splash
 hero:
-    tagline: Congrats on setting up a new Starlight project!
+    tagline: Built on a set of chat primitives, Limbo is the most customizable chat app.
     actions:
         - text: Read the docs
           link: /about
           icon: right-arrow
+        - text: View on GitHub
+          icon: external
+          variant: minimal
+          link: https://github.com/limbo-chat
 ---
+
+import { CardGrid, Card } from "@astrojs/starlight/components";
+
+<CardGrid stagger>
+	<Card title="Open Source" icon="open-book">
+		Being open source allows us to iterate as a community. Limbo is built by developers, for
+		developers.
+	</Card>
+	<Card title="Extensible with Plugins" icon="puzzle">
+		Use, create, and publish plugins to extend Limbo's functionality.
+	</Card>
+	<Card title="Own Your Data" icon="document">
+		All data are stored locally on your machine using SQlite. Your chats are your own.
+	</Card>
+	<Card title="Bring Your Own Styles" icon="pencil">
+		Limbo does not have a single line of CSS baked into the app. You can bring your own styles
+		and customize the look and feel to match your liking.
+	</Card>
+</CardGrid>
