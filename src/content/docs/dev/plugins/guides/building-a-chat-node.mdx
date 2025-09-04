@@ -1,0 +1,88 @@
+---
+title: Building a Custom Chat Node in Limbo
+description: A walkthrough of how to build your own chat node in Limbo
+---
+
+For the following demonstrations, we will use a hypothetical `json` node as an example. Although likely not needed in the real world, it helps illustrate the concepts.
+
+## Overview
+
+Most LLMs mostly work with `text` (which is the main chat node type in Limbo). Although LLMs can easily and often generate JSON effectively, must (if not all) do not understand JSON as a literal content type.
+
+Our goal is to build a new chat node that allows us to treat JSON values as a first-class citizen in the chat.
+
+This will allow us to:
+
+- indicate to LLMs that understand `json` that this node is in fact JSON
+- render the JSON in a structured way in the UI
+
+## Registering the Chat Node
+
+The first step in making our new `json` node is to register it with Limbo in our plugin. For more technical information, refer to the [Chat Nodes documentation](../chat-nodes).
+
+```ts {7-14}
+// plugin.ts
+
+import * as limbo from "@limbo-chat/api";
+
+export default {
+	onActivate: async () => {
+		limbo.ui.registerChatNode({
+			id: "json",
+			component: ({ node }) => {
+				// we won't fill this in during this guide, but you'd want to render the JSON in a structured way
+				// see https://www.npmjs.com/package/react-json-view for inspiration
+				return <div className="json-viewer">{JSON.stringify(node.data.json)}</div>;
+			},
+		});
+	},
+} satisfies limbo.Plugin;
+```
+
+## Casting `json` to `text`
+
+Now, when you add a new chat node to Limbo, you must assume that most LLMs do not support it out of the box. If an LLM receives a node type it does not understand, then the chat generation may fail.
+
+Fortunately, there is a way to determine if an LLM can handle our new JSON node. We can do this by checking the LLM's capabilities in the `onBeforeChatIteration` hook.
+
+:::note[Why in `onBeforeChatIteration`?]{icon="info"}
+This hook is called before each individual iteration of a chat generation and it receives a new copy of the prompt each time. In order to cast the `json` node to `text`, we need to transform it each iteration.
+
+You can read more about chat generations and iterations in the [Lifecycle documentation](../lifecycle).
+:::
+
+```ts {14-32}
+// plugin.ts
+
+import * as limbo from "@limbo-chat/api";
+
+export default {
+	onActivate: async () => {
+		limbo.ui.registerChatNode({
+			id: "json",
+			component: ({ node }) => {
+				return <div className="json-viewer">{JSON.stringify(node.data.json)}</div>;
+			},
+		});
+	},
+	onBeforeChatIteration: ({ generation, iteration }) => {
+		const messages = iteration.prompt.getMessages();
+
+		for (const message of messages) {
+			const nodes = message.getNodes();
+
+			for (const node of nodes) {
+				if (node.type === "json" && !generation.llm.understands(node)) {
+					// if the LLM doesn't understand the json node replace it with a text node (the most understood node!)
+					message.replaceNode(node, {
+						type: "text",
+						data: {
+							content: JSON.stringify(node.data.json),
+						},
+					});
+				}
+			}
+		}
+	},
+} satisfies limbo.Plugin;
+```

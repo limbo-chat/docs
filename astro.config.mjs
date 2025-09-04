@@ -85,6 +85,10 @@ export default defineConfig({
 											label: "Publishing",
 											link: "/dev/plugins/guides/publishing",
 										},
+										{
+											label: "Building a Chat Node",
+											link: "/dev/plugins/guides/building-a-chat-node",
+										},
 									],
 								},
 								{
@@ -94,6 +98,10 @@ export default defineConfig({
 								{
 									label: "Tools",
 									link: "/dev/plugins/tools",
+								},
+								{
+									label: "Chat Nodes",
+									link: "/dev/plugins/chat-nodes",
 								},
 								{
 									label: "Reference",

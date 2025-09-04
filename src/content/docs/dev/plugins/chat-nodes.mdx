@@ -1,0 +1,62 @@
+---
+title: Chat Nodes
+description: An overview of chat nodes in Limbo
+---
+
+Chat nodes are the main pieces of content that appear in the UI and are passed to LLMs for processing.
+
+In Limbo, these are the all of the chat node types that are built in.
+
+- `text`
+- `markdown`
+- `tool_call`
+
+Each of these chat nodes is a structured data type that contains specific fields and properties. They also all appear in the UI in their own distict ways.
+
+## Serialization
+
+All chat nodes are serialized and stored locally.
+
+Here is an example of a serialized text node as JSON:
+
+Here is the shape of a text node as a JSON object:
+
+```json
+{
+	"type": "text",
+	"data": {
+		"content": "Hello, world!"
+	}
+}
+```
+
+## Registering Chat Nodes
+
+Refer to [this guide](./guides/building-a-chat-node) for a more in-depth walkthrough.
+
+```ts
+// plugin.ts
+
+import * as limbo from "@limbo-chat/api";
+
+export default {
+	onActivate: async () => {
+		limbo.ui.registerChatNode({
+			id: "my_custom_node",
+			component: ({ node }) => {
+				return <div>here is a custom node! {node.data.content}</div>;
+			},
+		});
+	},
+} satisfies limbo.Plugin;
+```
+
+## Recommendations
+
+- use snake case (e.g, my_custom_node) for the chat node ID
+- Do not use spaces or special characters in the chat node ID
+- Keep the chat node ID short and descriptive (e.g, "text", "markdown", "tool_call", "json", etc)
+
+## The `text` node
+
+The chat node `text` is the most ubiquitous in Limbo, since all LLMs understand text. When dealing with an LLM that doesn't _understand_ a certain node, you should almost always convert it to `text`.
