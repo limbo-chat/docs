@@ -16,6 +16,12 @@ export default defineConfig({
 		mermaid(),
 		starlight({
 			title: "Limbo Docs",
+			logo: {
+				light: "./src/assets/logo-light.svg",
+				dark: "./src/assets/logo-dark.svg",
+				replacesTitle: true,
+			},
+			customCss: ["./src/styles/theme.css"],
 			plugins: [starlightThemeNext()],
 			social: [
 				{
@@ -49,7 +55,6 @@ export default defineConfig({
 				},
 				{
 					label: "Plugins",
-					collapsed: true,
 					items: [
 						{
 							label: "Overview",
@@ -105,6 +110,7 @@ export default defineConfig({
 						},
 						{
 							label: "Guides",
+							collapsed: true,
 							items: [
 								{
 									label: "Getting started",
