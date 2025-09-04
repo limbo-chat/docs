@@ -1,0 +1,35 @@
+---
+title: Chats
+description: An overview of the chats API in Limbo
+---
+
+The Limbo API allows plugins to read and modify chats.
+
+## Operations
+
+### Get chat
+
+Plugins can find a chat by its ID.
+
+```ts
+const chat1 = await limbo.chats.get("chat1");
+```
+
+### Get messages
+
+Plugins can get the messages in a chat.
+
+```ts
+const messages = await limbo.chats.getMessages({
+	chatId: "chat1",
+	limit: 10,
+});
+```
+
+### Rename chat
+
+Plugins can rename a chat
+
+```ts
+await limbo.chats.rename("chat1", "New Chat Name");
+```

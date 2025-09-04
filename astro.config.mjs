@@ -96,6 +96,10 @@ export default defineConfig({
 									],
 								},
 								{
+									label: "Chats",
+									link: "/dev/plugins/chats",
+								},
+								{
 									label: "Models",
 									link: "/dev/plugins/models",
 								},
