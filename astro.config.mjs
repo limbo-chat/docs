@@ -89,6 +89,10 @@ export default defineConfig({
 											label: "Building a Chat Node",
 											link: "/dev/plugins/guides/building-a-chat-node",
 										},
+										{
+											label: "Notable Plugins",
+											link: "/dev/plugins/guides/notable-plugins",
+										},
 									],
 								},
 								{
