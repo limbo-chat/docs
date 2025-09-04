@@ -1,0 +1,34 @@
+---
+title: Storage
+description: An overview of the storage API in Limbo
+---
+
+The Limbo API provides a storage system for plugins to use. Each plugin's storage is isolated from other plugins.
+
+Any JSON serializable value can be stored in storage.
+
+This includes:
+
+- strings
+- numbers
+- booleans
+- arrays
+- objects
+
+## Usage
+
+```ts
+// read
+const data = await limbo.storage.get<string>("my-str");
+
+// write
+await limbo.storage.set("my-str", "my-value");
+await limbo.storage.set("my-obj", { test: 5 });
+await limbo.storage.set("my-bool", true);
+
+// remove a single value from storage
+await limbo.storage.remove("my-key");
+
+// clear all values in storage
+await limbo.storage.clear();
+```

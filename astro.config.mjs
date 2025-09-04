@@ -108,6 +108,10 @@ export default defineConfig({
 									link: "/dev/plugins/chat-nodes",
 								},
 								{
+									label: "Storage",
+									link: "/dev/plugins/storage",
+								},
+								{
 									label: "Database",
 									link: "/dev/plugins/database",
 								},
