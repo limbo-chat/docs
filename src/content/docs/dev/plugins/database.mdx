@@ -1,0 +1,34 @@
+---
+title: Database
+description: An overview of the database API in Limbo
+---
+
+The Limbo API provides a SQlite database for plugins to use. Each plugin is given its own isolated database.
+
+## Usage
+
+```ts
+// read
+const result = await limbo.database.query("SELECT * FROM artifact WHERE id = ?", 1);
+
+// write
+await limbo.database.query("INSERT INTO artifact (name) VALUES (?)", "New Artifact");
+```
+
+## Integrations
+
+### Kysely
+
+Limbo has an official Kysely integration that allows you to easily query your plugin's database using Kysely's elegant query builder.
+
+You can find more instructions [here](https://github.com/limbo-chat/kysely).
+
+```ts
+import { LimboDialect } from "@limbo-chat/kysely";
+
+const db = new Kysely<Database>({
+	dialect: new LimboDialect(),
+});
+
+const artifact = await db.selectFrom("artifact").selectAll().where("id", "=", 1).executeTakeFirst();
+```
