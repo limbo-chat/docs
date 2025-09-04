@@ -63,39 +63,6 @@ export default defineConfig({
 									link: "/dev/plugins/lifecycle",
 								},
 								{
-									label: "Guides",
-									items: [
-										{
-											label: "Getting started",
-											link: "/dev/plugins/guides/getting-started",
-										},
-										{
-											label: "Best practices",
-											link: "/dev/plugins/guides/best-practices",
-										},
-										{
-											label: "Common pitfalls",
-											link: "/dev/plugins/guides/pitfalls",
-										},
-										{
-											label: "Building",
-											link: "/dev/plugins/guides/building",
-										},
-										{
-											label: "Publishing",
-											link: "/dev/plugins/guides/publishing",
-										},
-										{
-											label: "Building a Chat Node",
-											link: "/dev/plugins/guides/building-a-chat-node",
-										},
-										{
-											label: "Notable Plugins",
-											link: "/dev/plugins/guides/notable-plugins",
-										},
-									],
-								},
-								{
 									label: "Chats",
 									link: "/dev/plugins/chats",
 								},
@@ -134,6 +101,39 @@ export default defineConfig({
 								{
 									label: "Authentication",
 									link: "/dev/plugins/authentication",
+								},
+								{
+									label: "Guides",
+									items: [
+										{
+											label: "Getting started",
+											link: "/dev/plugins/guides/getting-started",
+										},
+										{
+											label: "Best practices",
+											link: "/dev/plugins/guides/best-practices",
+										},
+										{
+											label: "Common pitfalls",
+											link: "/dev/plugins/guides/pitfalls",
+										},
+										{
+											label: "Building",
+											link: "/dev/plugins/guides/building",
+										},
+										{
+											label: "Publishing",
+											link: "/dev/plugins/guides/publishing",
+										},
+										{
+											label: "Building a Chat Node",
+											link: "/dev/plugins/guides/building-a-chat-node",
+										},
+										{
+											label: "Notable Plugins",
+											link: "/dev/plugins/guides/notable-plugins",
+										},
+									],
 								},
 								{
 									label: "Reference",
