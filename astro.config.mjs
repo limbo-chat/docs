@@ -21,6 +21,7 @@ export default defineConfig({
 				dark: "./src/assets/logo-dark.svg",
 				replacesTitle: true,
 			},
+			favicon: "./src/assets/favicon.svg",
 			customCss: ["./src/styles/theme.css"],
 			plugins: [starlightThemeNext()],
 			social: [
@@ -81,14 +82,6 @@ export default defineConfig({
 							link: "/plugins/commands",
 						},
 						{
-							label: "Chat Nodes",
-							link: "/plugins/chat-nodes",
-						},
-						{
-							label: "Chat Panels",
-							link: "/plugins/chat-panels",
-						},
-						{
 							label: "Settings",
 							link: "/plugins/settings",
 						},
@@ -107,6 +100,14 @@ export default defineConfig({
 						{
 							label: "Authentication",
 							link: "/plugins/authentication",
+						},
+						{
+							label: "Chat Nodes",
+							link: "/plugins/chat-nodes",
+						},
+						{
+							label: "Chat Panels",
+							link: "/plugins/chat-panels",
 						},
 						{
 							label: "Guides",

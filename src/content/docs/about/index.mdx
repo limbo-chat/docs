@@ -4,8 +4,6 @@ description: An introduction to Limbo
 lastUpdated: 2025-05-26
 ---
 
-import { Aside } from "@astrojs/starlight/components";
-
 Limbo is a local-first and completely customizable desktop LLM interface. LLMs are an essential productivity tool these days, but most of us still bounce around ChatGPT, Claude, and Gemini, rotating when we hit rate limits.
 
 Although there are apps that exist that aim to unify the LLM user experience, all of them depend on the choices of the developers such as which LLMs to include and how the app should look.
@@ -42,11 +40,6 @@ Limbo ships with zero styles built in. _Literally, the app does not contain a si
 #### What does this mean?
 
 The html markup rendered inside of the limbo desktop app is completely **semantic**. Everything in the UI has a purpose and there are **no utility classes** (I'm looking at you, Tailwind). The semantic markup allows theme developers to choose **exactly** how each part of the app looks.
-
-<Aside>
-	We provide a base theme for limbo which can be installed separately, although I won't be
-	surprised when someone makes a better theme :)
-</Aside>
 
 #### Custom styles
 

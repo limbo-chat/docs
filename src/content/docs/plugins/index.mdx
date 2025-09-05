@@ -3,12 +3,10 @@ title: Overview
 description: An overview of the limbo plugin system
 ---
 
-import { Aside } from "@astrojs/starlight/components";
-
-<Aside>
-	The plugin API is **versioned separately** from the Limbo app. The latest version of the Limbo
-	app will be built with the latest version of the plugin API.
-</Aside>
+:::note
+The plugin API is versioned separately from the Limbo app. The latest version of the Limbo
+app will be built with the latest version of the plugin API.
+:::
 
 Plugins are JavaScript modules that extend the existing functionality in Limbo. Plugins interact with limbo by utilizing the Limbo plugin API.
 
@@ -48,4 +46,4 @@ export default {
 
 ## Plugin Inspiration
 
-Refer to our list of [notable plugins](./guides/notable-plugins) for inspiration.
+Refer to our list of [notable plugins](./plugins/guides/notable-plugins) for inspiration.
