@@ -16,12 +16,12 @@ export default defineConfig({
 		mermaid(),
 		starlight({
 			title: "Limbo Docs",
+			favicon: "/favicon.svg",
 			logo: {
 				light: "./src/assets/logo-light.svg",
 				dark: "./src/assets/logo-dark.svg",
 				replacesTitle: true,
 			},
-			favicon: "./src/assets/favicon.svg",
 			customCss: ["./src/styles/theme.css"],
 			plugins: [starlightThemeNext()],
 			social: [
