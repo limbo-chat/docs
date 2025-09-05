@@ -23,6 +23,10 @@ export default defineConfig({
 				replacesTitle: true,
 			},
 			customCss: ["./src/styles/theme.css"],
+			editLink: {
+				baseUrl: "https://github.com/limbo-chat/docs/edit/master",
+			},
+			lastUpdated: true,
 			plugins: [starlightThemeNext()],
 			social: [
 				{
