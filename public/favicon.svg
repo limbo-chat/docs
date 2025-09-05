@@ -1,6 +1,6 @@
 <svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="1024" height="1024" rx="64" fill="#1A1A1A"/>
-<line x1="285.379" y1="328.266" x2="700.194" y2="437.915" stroke="#F5F5F5" stroke-width="25"/>
-<line x1="709.5" y1="305" x2="709.5" y2="786" stroke="#F5F5F5" stroke-width="25"/>
-<line x1="294.5" y1="237" x2="294.5" y2="662" stroke="#F5F5F5" stroke-width="25"/>
+<rect width="1024" height="1024" rx="204" fill="#1A1A1A"/>
+<line x1="294.379" y1="344.266" x2="709.194" y2="453.915" stroke="#F5F5F5" stroke-width="25"/>
+<line x1="718.5" y1="321" x2="718.5" y2="802" stroke="#F5F5F5" stroke-width="25"/>
+<line x1="303.5" y1="253" x2="303.5" y2="678" stroke="#F5F5F5" stroke-width="25"/>
 </svg>
