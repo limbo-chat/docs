@@ -10,6 +10,7 @@ import node from "@astrojs/node";
 const env = loadEnv(process.env.NODE_ENV, process.cwd());
 
 export default defineConfig({
+	site: env.VITE_PUBLIC_SITE_URL,
 	devToolbar: {
 		enabled: false,
 	},
