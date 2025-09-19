@@ -4,6 +4,7 @@ import starlight from "@astrojs/starlight";
 import mermaid from "astro-mermaid";
 import { loadEnv } from "vite";
 import starlightThemeNext from "starlight-theme-next";
+import node from "@astrojs/node";
 
 // @ts-expect-error
 const env = loadEnv(process.env.NODE_ENV, process.cwd());
@@ -12,6 +13,9 @@ export default defineConfig({
 	devToolbar: {
 		enabled: false,
 	},
+	adapter: node({
+		mode: "standalone",
+	}),
 	integrations: [
 		mermaid(),
 		starlight({
